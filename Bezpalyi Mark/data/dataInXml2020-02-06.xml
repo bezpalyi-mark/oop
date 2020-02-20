@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.5" class="java.beans.XMLDecoder">
+ <object class="ua.khpi.oop.bezpalyi09.ListContainer">
+  <void property="head">
+   <object class="ua.khpi.oop.bezpalyi09.ListContainer$Node">
+    <void property="next">
+     <object class="ua.khpi.oop.bezpalyi09.ListContainer$Node">
+      <void property="value">
+       <object class="ua.khpi.oop.bezpalyi07.AddressBook">
+        <void property="address">
+         <string>Address2</string>
+        </void>
+        <void property="dateOfBirth">
+         <object class="java.util.Date">
+          <long>340837200000</long>
+         </object>
+        </void>
+        <void property="firstName">
+         <string>Second first name</string>
+        </void>
+        <void property="lastName">
+         <string>Second surname</string>
+        </void>
+        <void property="secondName">
+         <string>Second second name</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="value">
+     <object class="ua.khpi.oop.bezpalyi07.AddressBook">
+      <void property="address">
+       <string>Address1</string>
+      </void>
+      <void property="dateOfBirth">
+       <object class="java.util.Date">
+        <long>1262210400000</long>
+       </object>
+      </void>
+      <void property="firstName">
+       <string>First first name</string>
+      </void>
+      <void property="lastName">
+       <string>First surname</string>
+      </void>
+      <void property="secondName">
+       <string>First second name</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
