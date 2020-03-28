@@ -115,11 +115,4 @@ public class Lab09Tests {
         }
         assertEquals(expected.toString(), actual.toString());
     }
-
-    @Test
-    void assertSort() {
-        ListContainer<AddressBook> listContainer = new ListContainer<>();
-//        listContainer.sort(Comparator.comparing(AddressBook::getFirstName));
-        SortListContainer s = new SortListContainer(listContainer);
-    }
 }
