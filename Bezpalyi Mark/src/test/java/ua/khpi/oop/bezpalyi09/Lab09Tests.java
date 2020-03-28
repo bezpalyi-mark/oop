@@ -4,12 +4,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ua.khpi.oop.bezpalyi06.SerializeHandler;
 import ua.khpi.oop.bezpalyi07.AddressBook;
-import ua.khpi.oop.bezpalyi10.Sorting;
+import ua.khpi.oop.bezpalyi10.SortListContainer;
 
-import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Comparator;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -122,6 +120,6 @@ public class Lab09Tests {
     void assertSort() {
         ListContainer<AddressBook> listContainer = new ListContainer<>();
 //        listContainer.sort(Comparator.comparing(AddressBook::getFirstName));
-        Sorting s = new Sorting(listContainer);
+        SortListContainer s = new SortListContainer(listContainer);
     }
 }
