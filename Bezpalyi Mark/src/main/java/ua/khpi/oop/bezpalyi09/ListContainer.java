@@ -5,10 +5,7 @@ import java.util.Iterator;
 
 public class ListContainer<T> implements Serializable, Iterable<ListContainer.Node<T>> {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
+    protected static final long serialVersionUID = 1L;
 
     @Override
     public Iterator<Node<T>> iterator() {
@@ -31,7 +28,7 @@ public class ListContainer<T> implements Serializable, Iterable<ListContainer.No
         };
     }
 
-    private Node<T> head;
+    protected Node<T> head;
 
     public ListContainer() {
         head = null;
@@ -42,9 +39,7 @@ public class ListContainer<T> implements Serializable, Iterable<ListContainer.No
     }
 
     public static class Node<T> implements Serializable {
-        /**
-         *
-         */
+
         private static final long serialVersionUID = 1L;
 
         T value;
@@ -67,7 +62,6 @@ public class ListContainer<T> implements Serializable, Iterable<ListContainer.No
         }
 
         public Node() {
-
         }
 
         public Node(T book) {
@@ -169,5 +163,21 @@ public class ListContainer<T> implements Serializable, Iterable<ListContainer.No
     public void clear() {
         head = null;
     }
+
+//    public Node<T> sort(Comparator<T> comparator){
+//        Node<T> currentNode = head;
+//        final int length = size();
+//        int middle = length / 2;
+//        if(length % 2 != 0) {
+//            middle++;
+//        }
+//        int left = 0;
+//        int right = middle;
+//        if(currentNode.next == null) {
+//            return currentNode;
+//        } else {
+//            comparator.compare()
+//        }
+//    }
 
 }

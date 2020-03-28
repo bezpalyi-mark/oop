@@ -4,14 +4,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ua.khpi.oop.bezpalyi06.SerializeHandler;
 import ua.khpi.oop.bezpalyi07.AddressBook;
+import ua.khpi.oop.bezpalyi10.Sorting;
 
+import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Lab09Test {
+public class Lab09Tests {
     static AddressBook addressBook1;
     static AddressBook addressBook2;
 
@@ -107,11 +110,18 @@ public class Lab09Test {
         XMLHandler<ListContainer<AddressBook>> xmlHandler = new XMLHandler<>();
         String date = xmlHandler.saveToXML("./data/dataInXml", expected);
         ListContainer<AddressBook> actual = xmlHandler.readFromXML("./data/dataInXml" + date + ".xml");
-        for(int i = 0; i < actual.size(); i++) {
+        for (int i = 0; i < actual.size(); i++) {
             actual.get(i).setEditDateAndTime(
                     expected.get(i).getEditDateAndTime()
             );
         }
         assertEquals(expected.toString(), actual.toString());
+    }
+
+    @Test
+    void assertSort() {
+        ListContainer<AddressBook> listContainer = new ListContainer<>();
+//        listContainer.sort(Comparator.comparing(AddressBook::getFirstName));
+        Sorting s = new Sorting(listContainer);
     }
 }
