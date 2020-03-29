@@ -13,6 +13,10 @@ public class SortListContainer<T> {
         this.comparator = comparator;
     }
 
+    public void setComparator(Comparator<ListContainer.Node<T>> comparator) {
+        this.comparator = comparator;
+    }
+
     public List<ListContainer.Node<T>> splitUp(ListContainer.Node<T> inHead) {
         List<ListContainer.Node<T>> list = new ArrayList<>();
 

@@ -144,4 +144,51 @@ public class AddressBook implements Serializable {
     public void setEditTime(String timeAndDate) {
         editDateAndTime = timeAndDate;
     }
+
+    public static class Builder {
+        private AddressBook newBook;
+
+        public Builder() {
+            newBook = new AddressBook();
+        }
+
+        public Builder setFirstName(String firstName) {
+            newBook.firstName = firstName;
+            return this;
+        }
+
+        public Builder setSecondName(String secondName) {
+            newBook.secondName = secondName;
+            return this;
+        }
+
+        public Builder setLastName(String lastName) {
+            newBook.lastName = lastName;
+            return this;
+        }
+
+        public Builder setDateOfBirth(Date birthday) {
+            newBook.dateOfBirth = birthday;
+            return this;
+        }
+
+        public Builder setAddress(String address) {
+            newBook.address = address;
+            return this;
+        }
+
+        public Builder setEditTime(String editTime) {
+            newBook.editDateAndTime = editTime;
+            return this;
+        }
+
+        public Builder setPhoneNumbers(StringContainer phoneNumbers) {
+            newBook.phoneNumbers = phoneNumbers;
+            return this;
+        }
+
+        public AddressBook build() {
+            return newBook;
+        }
+    }
 }
