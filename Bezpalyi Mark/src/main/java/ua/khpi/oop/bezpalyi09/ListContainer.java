@@ -23,7 +23,7 @@ public class ListContainer<T> implements Serializable, Iterable<ListContainer.No
                 Node<T> next = tempNode;
                 tempNode = tempNode.next;
                 return next;
-             }
+            }
 
         };
     }
@@ -90,8 +90,8 @@ public class ListContainer<T> implements Serializable, Iterable<ListContainer.No
         if (head == null) {
             return "";
         } else {
-            final int capacity = 50000;
-            StringBuilder stringBuilder = new StringBuilder(capacity);
+//            final int capacity = 50000;
+            StringBuilder stringBuilder = new StringBuilder();
             while (tempNode != null) {
                 stringBuilder.append(tempNode.value.toString()).append('\n');
                 tempNode = tempNode.next;
@@ -153,7 +153,7 @@ public class ListContainer<T> implements Serializable, Iterable<ListContainer.No
     public int size() {
         Node<T> tempNode = head;
         int size = 0;
-        while(tempNode != null) {
+        while (tempNode != null) {
             size++;
             tempNode = tempNode.next;
         }
@@ -163,21 +163,4 @@ public class ListContainer<T> implements Serializable, Iterable<ListContainer.No
     public void clear() {
         head = null;
     }
-
-//    public Node<T> sort(Comparator<T> comparator){
-//        Node<T> currentNode = head;
-//        final int length = size();
-//        int middle = length / 2;
-//        if(length % 2 != 0) {
-//            middle++;
-//        }
-//        int left = 0;
-//        int right = middle;
-//        if(currentNode.next == null) {
-//            return currentNode;
-//        } else {
-//            comparator.compare()
-//        }
-//    }
-
 }

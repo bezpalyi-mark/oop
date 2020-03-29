@@ -7,14 +7,9 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SortListContainer<T> {
-    ListContainer<T> listContainer;
-    ListContainer.Node<T> head;
     Comparator<ListContainer.Node<T>> comparator;
 
-    public SortListContainer(ListContainer<T> listContainer,
-                             Comparator<ListContainer.Node<T>> comparator) {
-        this.listContainer = listContainer;
-        head = listContainer.getHead();
+    public SortListContainer(Comparator<ListContainer.Node<T>> comparator) {
         this.comparator = comparator;
     }
 
@@ -71,7 +66,7 @@ public class SortListContainer<T> {
         }
         List<ListContainer.Node<T>> array = splitUp(inHead);
         ListContainer.Node<T> firstPart = array.get(0);
-        ListContainer.Node<T> secondPart = array.get(0);
+        ListContainer.Node<T> secondPart = array.get(1);
 
         firstPart = sort(firstPart);
         secondPart = sort(secondPart);
