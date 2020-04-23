@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ua.khpi.oop.bezpalyi06.SerializeHandler;
 import ua.khpi.oop.bezpalyi07.AddressBook;
-import ua.khpi.oop.bezpalyi10.SortListContainer;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -59,8 +58,8 @@ public class Lab09Tests {
     void testStandardSerializing() {
         System.out.println("Standard serializing test");
         ListContainer<AddressBook> expected = new ListContainer<>();
-        expected.insert(addressBook1);
-        expected.insert(addressBook2);
+        expected.add(addressBook1);
+        expected.add(addressBook2);
 
         SerializeHandler serializeHandler = new SerializeHandler();
         serializeHandler.serializeObject(expected, "./data/serData.xml");
@@ -74,12 +73,12 @@ public class Lab09Tests {
     void testList() {
         System.out.println("Test of general functions");
         ListContainer<AddressBook> listContainer = new ListContainer<>();
-        listContainer.insert(addressBook1);
+        listContainer.add(addressBook1);
 
         assertEquals(listContainer.get(0), addressBook1);
         assertEquals(listContainer.size(), 1);
 
-        listContainer.insert(addressBook2);
+        listContainer.add(addressBook2);
         assertEquals(listContainer.get(0), addressBook1);
         assertEquals(listContainer.get(1), addressBook2);
         assertEquals(listContainer.size(), 2);
@@ -93,8 +92,8 @@ public class Lab09Tests {
 
         assertNull(listContainer.get(1));
 
-        listContainer.insert(addressBook1);
-        listContainer.insert(addressBook2);
+        listContainer.add(addressBook1);
+        listContainer.add(addressBook2);
         listContainer.clear();
         assertEquals(listContainer.size(), 0);
         assertNull(listContainer.get(1));
@@ -104,8 +103,8 @@ public class Lab09Tests {
     void testXMLSerializing() {
         System.out.println("XML serializing test");
         ListContainer<AddressBook> expected = new ListContainer<>();
-        expected.insert(addressBook1);
-        expected.insert(addressBook2);
+        expected.add(addressBook1);
+        expected.add(addressBook2);
         XMLHandler<ListContainer<AddressBook>> xmlHandler = new XMLHandler<>();
         String date = xmlHandler.saveToXML("./data/dataInXml", expected);
         ListContainer<AddressBook> actual = xmlHandler.readFromXML("./data/dataInXml" + date + ".xml");

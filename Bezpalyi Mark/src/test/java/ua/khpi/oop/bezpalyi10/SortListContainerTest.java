@@ -95,10 +95,10 @@ class SortListContainerTest {
     @Test
     void sort() {
         ListContainer<AddressBook> list = new ListContainer<>();
-        list.insert(addressBook1);
-        list.insert(addressBook2);
-        list.insert(addressBook3);
-        list.insert(addressBook4);
+        list.add(addressBook1);
+        list.add(addressBook2);
+        list.add(addressBook3);
+        list.add(addressBook4);
 
         SortListContainer<AddressBook> sortInst = new SortListContainer<>(comparatorByFN);
         list.setHead(sortInst.sort(list.getHead()));

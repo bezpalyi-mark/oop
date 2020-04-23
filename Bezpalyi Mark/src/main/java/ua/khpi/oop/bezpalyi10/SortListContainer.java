@@ -17,7 +17,7 @@ public class SortListContainer<T> {
         this.comparator = comparator;
     }
 
-    public List<ListContainer.Node<T>> splitUp(ListContainer.Node<T> inHead) {
+    private List<ListContainer.Node<T>> splitUp(ListContainer.Node<T> inHead) {
         List<ListContainer.Node<T>> list = new ArrayList<>();
 
         if (inHead == null || inHead.getNext() == null) {
@@ -42,7 +42,7 @@ public class SortListContainer<T> {
         return list;
     }
 
-    public ListContainer.Node<T> merge(ListContainer.Node<T> first, ListContainer.Node<T> second) {
+    private ListContainer.Node<T> merge(ListContainer.Node<T> first, ListContainer.Node<T> second) {
         if (first == null) {
             return second;
         }

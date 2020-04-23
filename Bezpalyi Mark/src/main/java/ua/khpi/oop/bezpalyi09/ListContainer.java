@@ -70,7 +70,7 @@ public class ListContainer<T> implements Serializable, Iterable<ListContainer.No
         }
     }
 
-    public void insert(T value) {
+    public void add(T value) {
         Node<T> newNode = new Node<>(value);
         newNode.next = null;
 
