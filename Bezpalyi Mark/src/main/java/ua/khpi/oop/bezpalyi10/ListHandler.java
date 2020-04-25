@@ -33,7 +33,7 @@ public class ListHandler {
         sort = null;
     }
 
-    public void dialogMod() {
+    public void dialogMode() {
         ListContainer<AddressBook> list = new ListContainer<>();
         System.out.println("List is ready!");
         while (true) {
@@ -52,7 +52,10 @@ public class ListHandler {
             switch (choice) {
                 case 1:
                     try {
-                        list.add(io.getAddressBook());
+                        AddressBook addressBook = io.getAddressBook();
+                        if (addressBook != null) {
+                            list.add(addressBook);
+                        }
                     } catch (ParseException e) {
                         System.out.println("Failed to parse data!");
                     }
