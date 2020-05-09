@@ -22,7 +22,8 @@ public class ListMenuIO implements AddressBookMenuIO {
                     "5. Remove all address book\n" +
                     "6. Show size\n" +
                     "7. Sort address books\n" +
-                    "8. Exit";
+                    "8. Show operator users\n" +
+                    "9. Exit";
 
     private final static String SORT_MENU =
             "1. Sort by first name\n" +
@@ -43,6 +44,12 @@ public class ListMenuIO implements AddressBookMenuIO {
     @Override
     public int getMenuChoice() {
         System.out.println(MAIN_MENU);
+        return scanner.nextInt();
+    }
+
+    public int getOperatorChoice() {
+        System.out.println("1 - KyivStar numbers\n" +
+                "2 - LifeCell numbers");
         return scanner.nextInt();
     }
 

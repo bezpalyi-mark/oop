@@ -51,13 +51,12 @@ public class StringContainer implements Iterable<String>, Serializable {
 
             @Override
             public boolean hasNext() {
-                return (currentIndex < currentSize) && (array[currentSize + 1] != null);
+                return (currentIndex < currentSize) && (array[currentIndex] != null);
             }
 
             @Override
             public String next() {
-                currentIndex++;
-                return array[currentIndex];
+                return array[currentIndex++];
             }
 
             @Override

@@ -16,4 +16,6 @@ public interface AddressBookMenuIO {
     void print(String string);
 
     int getSortChoice();
+
+    public int getOperatorChoice();
 }

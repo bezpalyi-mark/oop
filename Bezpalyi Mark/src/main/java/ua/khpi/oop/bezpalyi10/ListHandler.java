@@ -2,6 +2,7 @@ package ua.khpi.oop.bezpalyi10;
 
 import ua.khpi.oop.bezpalyi07.AddressBook;
 import ua.khpi.oop.bezpalyi09.ListContainer;
+import ua.khpi.oop.bezpalyi12.OperatorHandler;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,23 +29,32 @@ public class ListHandler {
 
     private SortListContainer<AddressBook> sort;
 
+    private final ListContainer<AddressBook> list;
+
     public ListHandler() {
+        io = new ListMenuIO();
+        sort = null;
+        list = new ListContainer<>();
+    }
+
+    public ListHandler(ListContainer<AddressBook> list) {
+        this.list = list;
         io = new ListMenuIO();
         sort = null;
     }
 
     public void dialogMode() {
-        ListContainer<AddressBook> list = new ListContainer<>();
+        OperatorHandler operatorHandler = new OperatorHandler();
         System.out.println("List is ready!");
         while (true) {
             int choice = io.getMenuChoice();
 
-            if (choice == 8) {
+            if (choice == 9) {
                 System.out.println("Goodbye");
                 break;
             }
 
-            if (choice < 1 || choice > 7) {
+            if (choice < 1 || choice > 8) {
                 System.out.println("Invalid input data!");
                 continue;
             }
@@ -100,6 +110,16 @@ public class ListHandler {
                             break;
                     }
                     break;
+                case 8:
+                    int operator = io.getOperatorChoice();
+                    switch (operator) {
+                        case 1:
+                            io.print(operatorHandler.getKyivStarUsers(list).toString());
+                            break;
+                        case 2:
+                            io.print(operatorHandler.getLifeCellUsers(list).toString());
+                            break;
+                    }
             }
         }
     }
