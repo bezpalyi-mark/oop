@@ -32,10 +32,6 @@ public class AddressBook implements Serializable {
         editDateAndTime = formatter.format(date);
     }
 
-    public String getEditTimeAndDate() {
-        return editDateAndTime;
-    }
-
     public void addPhoneNumber(String number) {
         phoneNumbers.add(number);
     }
@@ -146,7 +142,7 @@ public class AddressBook implements Serializable {
     }
 
     public static class Builder {
-        private AddressBook newBook;
+        private final AddressBook newBook;
 
         public Builder() {
             newBook = new AddressBook();
