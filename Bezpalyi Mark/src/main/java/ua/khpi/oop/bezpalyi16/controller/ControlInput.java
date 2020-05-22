@@ -15,14 +15,30 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Class - controller input data.
+ */
 public class ControlInput {
+
+    /**
+     * Apache logger.
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(ControlInput.class);
 
+    /**
+     * Stored books, container.
+     */
     private final List<AddressBook> books = new ArrayList<>();
 
     public ControlInput() {
     }
 
+    /**
+     * Method for get integer input from text fields.
+     *
+     * @param text input from text fields.
+     * @return parsed integer.
+     */
     public int getIndex(String text) {
         int index;
         try {
@@ -38,10 +54,18 @@ public class ControlInput {
         return index;
     }
 
+    /**
+     * Getter for container.
+     *
+     * @return address book container.
+     */
     public List<AddressBook> getBooks() {
         return books;
     }
 
+    /**
+     * Method for load sample data.
+     */
     public void loadData() {
         if (books.size() == 0) {
             ListContainer<AddressBook> bookListContainer = LoadData.loadList();
@@ -51,16 +75,20 @@ public class ControlInput {
         }
     }
 
-    public String getAllAddressBooks() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (AddressBook addressBook : books) {
-            stringBuilder.append(addressBook.toString()).append("\n");
-        }
-        return stringBuilder.toString();
-    }
-
+    /**
+     * Method check input data and create new address book.
+     * Add it to container.
+     *
+     * @param firstName   first name from text input filed.
+     * @param lastName    last name from text input filed.
+     * @param secondName  second name from text input filed.
+     * @param dateOfBirth birthday from text input filed.
+     * @param address     address from text input filed.
+     * @param phoneNumber phone number from text input filed.
+     * @return null if new address book was added to container, or name of field where occurred mistake.
+     */
     public String addNewAddressBook(String firstName, String lastName, String secondName,
-                                     String dateOfBirth, String address, String phoneNumber) {
+                                    String dateOfBirth, String address, String phoneNumber) {
         AddressBookAccessor accessor = new AddressBookAccessor();
         AddressBook.Builder bookBuilder = new AddressBook.Builder();
 

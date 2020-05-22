@@ -15,34 +15,44 @@ import ua.khpi.oop.bezpalyi16.model.ManipulatorModels;
  **/
 public class MainWindow extends Application {
 
+    /**
+     * Model with various buttons.
+     */
     private final ManipulatorModels manipulatorModels;
 
     public MainWindow() {
         manipulatorModels = new ManipulatorModels();
     }
 
+    /**
+     * Method to start app.
+     * @param argv command line arguments.
+     */
     public void go(String[] argv) {
         Application.launch(argv);
     }
 
-
+    /**
+     * Method - entry point for java FX.
+     * @param stage root stage;
+     */
     @Override
-    public void start(final Stage s) {
+    public void start(final Stage stage) {
 
-        s.setTitle("Container Manipulator");
+        stage.setTitle("Container Manipulator");
         AnchorPane pane = new AnchorPane();
         VBox vBox1 = new VBox();
         vBox1.getChildren().addAll(
-                manipulatorModels.addNewAdressBookButton(s),
-                manipulatorModels.addSearchButton(s),
-                manipulatorModels.addShowAllButton(s),
-                manipulatorModels.addRemoveButton(s),
-                manipulatorModels.addRemoveAllButton(s),
-                manipulatorModels.addUpdateButton(s),
+                manipulatorModels.addNewAddressBookButton(stage),
+                manipulatorModels.addSearchButton(stage),
+                manipulatorModels.addShowAllButton(stage),
+                manipulatorModels.addRemoveButton(stage),
+                manipulatorModels.addRemoveAllButton(stage),
+                manipulatorModels.addUpdateButton(stage),
                 manipulatorModels.addSizeLabelRaw());
         pane.getChildren().add(vBox1);
         Scene sc = new Scene(pane, 700, 400);
-        s.setScene(sc);
-        s.show();
+        stage.setScene(sc);
+        stage.show();
     }
 }

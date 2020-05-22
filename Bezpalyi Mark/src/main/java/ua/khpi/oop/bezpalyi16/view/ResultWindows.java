@@ -26,8 +26,18 @@ import java.util.List;
  * @version 1.0
  **/
 public class ResultWindows {
+
+    /**
+     * Table structure to store view address books.
+     */
     private final TableView<AddressBook> table = new TableView<>();
 
+    /**
+     * Method create new modal window with table which store result.
+     *
+     * @param stage        root stage.
+     * @param addressBooks list with output address books.
+     */
     public void newModalWindow(Stage stage, List<AddressBook> addressBooks) {
         ObservableList<AddressBook> data =
                 FXCollections.observableArrayList(addressBooks);
@@ -85,6 +95,12 @@ public class ResultWindows {
         newWindow.show();
     }
 
+    /**
+     * Method create modal window to print info.
+     *
+     * @param message message to print.
+     * @param stage   root stage.
+     */
     public void newModalInfoWindow(String message, Stage stage) {
         Label secondLabel = new Label(message);
         StackPane secondaryLayout = new StackPane();
@@ -110,6 +126,12 @@ public class ResultWindows {
         newWindow.show();
     }
 
+    /**
+     * Method create new modal window with form to add new address book.
+     *
+     * @param stage root stage.
+     * @param input controller for check input data and add new address book to list.
+     */
     public void newAddAddressBookForm(Stage stage, ControlInput input) {
         VBox vBox = new VBox();
         vBox.setSpacing(5);
@@ -168,7 +190,7 @@ public class ResultWindows {
             String added;
             added = input.addNewAddressBook(fieldFN.getText(), fieldLN.getText(), fieldSN.getText(),
                     fieldDate.getText(), fieldAddress.getText(), fieldPhone.getText());
-            if(added == null) {
+            if (added == null) {
                 new ResultWindows().newModalInfoWindow("Address book successfully added", stage);
             } else {
                 new ResultWindows().newModalInfoWindow("Error, invalid data: " + added, stage);
