@@ -19,15 +19,15 @@ public class DemoThreader implements Runnable {
         int threadCounter = 0;
         int elemCounter = 0;
 
-        ProcedureOfGettingOldRecords[] oldRecords = new ProcedureOfGettingOldRecords[2];
-        ProcedureWithEvenNumbersInPhone[] evenNumbersInPhones = new ProcedureWithEvenNumbersInPhone[2];
+        ProcedureOfGettingAdults[] oldRecords = new ProcedureOfGettingAdults[2];
+        GetWithMoreEvenNumbersInPhone[] evenNumbersInPhones = new GetWithMoreEvenNumbersInPhone[2];
 
         for(int i = 0; i < 4; i++) {
-            oldRecords[elemCounter] = new ProcedureOfGettingOldRecords(books, (i + 1));
+            oldRecords[elemCounter] = new ProcedureOfGettingAdults(books, (i + 1));
             threads[threadCounter] = new Thread(oldRecords[elemCounter]);
             threadCounter++;
 
-            evenNumbersInPhones[elemCounter] = new ProcedureWithEvenNumbersInPhone(books, (++i + 1));
+            evenNumbersInPhones[elemCounter] = new GetWithMoreEvenNumbersInPhone(books, (++i + 1));
             threads[threadCounter] = new Thread(evenNumbersInPhones[elemCounter]);
 
             threads[threadCounter - 1].start();

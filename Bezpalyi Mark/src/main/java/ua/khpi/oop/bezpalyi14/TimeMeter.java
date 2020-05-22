@@ -4,8 +4,8 @@ import ua.khpi.oop.bezpalyi07.AddressBook;
 import ua.khpi.oop.bezpalyi09.ListContainer;
 import ua.khpi.oop.bezpalyi13.DemoThreader;
 import ua.khpi.oop.bezpalyi13.LoadData;
-import ua.khpi.oop.bezpalyi13.ProcedureOfGettingOldRecords;
-import ua.khpi.oop.bezpalyi13.ProcedureWithEvenNumbersInPhone;
+import ua.khpi.oop.bezpalyi13.ProcedureOfGettingAdults;
+import ua.khpi.oop.bezpalyi13.GetWithMoreEvenNumbersInPhone;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -33,8 +33,8 @@ public class TimeMeter {
         System.out.println("\\-------------------------------/");
 
         ListContainer<AddressBook> books = LoadData.loadList();
-        ProcedureWithEvenNumbersInPhone procedure1 = new ProcedureWithEvenNumbersInPhone(books, 5);
-        ProcedureOfGettingOldRecords procedure2 = new ProcedureOfGettingOldRecords(books, 6);
+        GetWithMoreEvenNumbersInPhone procedure1 = new GetWithMoreEvenNumbersInPhone(books, 5);
+        ProcedureOfGettingAdults procedure2 = new ProcedureOfGettingAdults(books, 6);
 
         beginTime = LocalDateTime.now();
         procedure1.run();

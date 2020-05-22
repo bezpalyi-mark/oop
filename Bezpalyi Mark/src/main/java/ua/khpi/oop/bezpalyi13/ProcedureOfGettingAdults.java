@@ -3,13 +3,17 @@ package ua.khpi.oop.bezpalyi13;
 import ua.khpi.oop.bezpalyi07.AddressBook;
 import ua.khpi.oop.bezpalyi09.ListContainer;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
-public class ProcedureWithEvenNumbersInPhone implements Runnable {
+public class ProcedureOfGettingAdults implements Runnable {
 
     private boolean stop = false;
 
-    private static final int MAX_WAIT = 100;
+    private static final int MAX_WAIT = 150;
 
     private final ListContainer<AddressBook> books;
 
@@ -17,7 +21,7 @@ public class ProcedureWithEvenNumbersInPhone implements Runnable {
 
     private final Random rnd = new Random();
 
-    public ProcedureWithEvenNumbersInPhone(ListContainer<AddressBook> books, Integer number) {
+    public ProcedureOfGettingAdults(ListContainer<AddressBook> books, Integer number) {
         this.books = books;
         this.number = number;
     }
@@ -30,28 +34,22 @@ public class ProcedureWithEvenNumbersInPhone implements Runnable {
     public void run() {
         Thread.currentThread().setName("thread number " + number);
         System.out.println("Begin of work of " + Thread.currentThread().getName());
-        ListContainer<AddressBook> evenNumbersPhoneBooks = new ListContainer<>();
-        for (int i = 0; i < books.size(); i++) {
+        ListContainer<AddressBook> oldBooks = new ListContainer<>();
+        LocalDate vergeDate = LocalDate.of(2009, Month.JUNE, 10);
+        for (ListContainer.Node<AddressBook> book : books) {
             if(stop) {
                 System.out.println(Thread.currentThread().getName() + " stopped!");
                 return;
             }
-            String number = books.get(i).getPhoneNumbers().get(0);
-            String numberWithoutDels = number.replaceAll("-", "");
-            int fullSize = numberWithoutDels.length();
-            int countEvens = 0;
-            for(int j = 0; j < fullSize; j++) {
-                byte b = Byte.parseByte(String.valueOf(numberWithoutDels.charAt(j)));
-                if(b % 2 == 0) {
-                    countEvens++;
-                }
-            }
-            if(countEvens >= (fullSize/2)) {
-                evenNumbersPhoneBooks.add(books.get(i));
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            LocalDateTime dateTime = LocalDateTime.parse(book.getValue().getEditDateAndTime(), formatter);
+            LocalDate localDate = dateTime.toLocalDate();
+            if (vergeDate.isAfter(localDate)) {
+                oldBooks.add(book.getValue());
                 goSleep();
             }
         }
-        System.out.println("Size of books more evens numbers in phone: " + evenNumbersPhoneBooks.size());
+        System.out.println("Size of books with old records: " + oldBooks.size());
         System.out.println("End of work of " + Thread.currentThread().getName() + "\n");
     }
 
