@@ -12,9 +12,9 @@ public class JavaCollectionsDemo {
         List<AddressBook> list = new ArrayList<>();
         JavaCollectionConsoleHandler handler = new JavaCollectionConsoleHandler(new ListMenuIO(), list);
         if (args.length > 0 && args[0].equals("-auto")) {
-            handler.dialogMode();
-        } else {
             handler.autoMode();
+        } else {
+            handler.dialogMode();
         }
     }
 }

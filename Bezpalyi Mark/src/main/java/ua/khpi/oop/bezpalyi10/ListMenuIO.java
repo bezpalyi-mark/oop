@@ -46,7 +46,7 @@ public class ListMenuIO implements AddressBookMenuIO {
     private final BookAccessor accessor;
 
     public ListMenuIO() {
-        scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in).useDelimiter("\n");
         simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         accessor = new AddressBookAccessor();
     }
