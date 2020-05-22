@@ -12,17 +12,17 @@ import java.util.Date;
 
 public class ListHandler {
 
-    Comparator<ListContainer.Node<AddressBook>> comparatorByFN =
+    public static Comparator<ListContainer.Node<AddressBook>> FIRST_NAME_COMPARATOR =
             Comparator.comparing(addressBookNode -> addressBookNode.getValue().getFirstName());
 
-    Comparator<ListContainer.Node<AddressBook>> comparatorByLN =
+    public static Comparator<ListContainer.Node<AddressBook>> LAST_NAME_COMPARATOR =
             Comparator.comparing(addressBookNode -> addressBookNode.getValue().getLastName());
 
 
-    Comparator<ListContainer.Node<AddressBook>> comparatorByBD =
+    public static Comparator<ListContainer.Node<AddressBook>> BIRTH_DATE_COMPARATOR =
             Comparator.comparing(addressBookNode -> addressBookNode.getValue().getDateOfBirth());
 
-    Comparator<ListContainer.Node<AddressBook>> comparatorByED =
+    public static  Comparator<ListContainer.Node<AddressBook>> EDIT_DATE_TIME_COMPARATOR =
             Comparator.comparing(addressBookNode -> addressBookNode.getValue().getEditDateAndTime());
 
     private final AddressBookMenuIO io;
@@ -93,19 +93,19 @@ public class ListHandler {
                     }
                     switch (sortChoice) {
                         case 1:
-                            sort = new SortListContainer<>(comparatorByFN);
+                            sort = new SortListContainer<>(FIRST_NAME_COMPARATOR);
                             list.setHead(sort.sort(list.getHead()));
                             break;
                         case 2:
-                            sort = new SortListContainer<>(comparatorByLN);
+                            sort = new SortListContainer<>(LAST_NAME_COMPARATOR);
                             list.setHead(sort.sort(list.getHead()));
                             break;
                         case 3:
-                            sort = new SortListContainer<>(comparatorByBD);
+                            sort = new SortListContainer<>(BIRTH_DATE_COMPARATOR);
                             list.setHead(sort.sort(list.getHead()));
                             break;
                         case 4:
-                            sort = new SortListContainer<>(comparatorByED);
+                            sort = new SortListContainer<>(EDIT_DATE_TIME_COMPARATOR);
                             list.setHead(sort.sort(list.getHead()));
                             break;
                     }

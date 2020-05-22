@@ -25,6 +25,16 @@ public class ListMenuIO implements AddressBookMenuIO {
                     "8. Show operator users\n" +
                     "9. Exit";
 
+    private final static String MAIN_MENU_COLLECTION =
+            "1. Add address book\n" +
+                    "2. Remove address book\n" +
+                    "3. Search address book\n" +
+                    "4. Show all address books\n" +
+                    "5. Remove all address book\n" +
+                    "6. Show size\n" +
+                    "7. Sort address books\n" +
+                    "8. Exit";
+
     private final static String SORT_MENU =
             "1. Sort by first name\n" +
                     "2. Sort by last name\n" +
@@ -44,6 +54,11 @@ public class ListMenuIO implements AddressBookMenuIO {
     @Override
     public int getMenuChoice() {
         System.out.println(MAIN_MENU);
+        return scanner.nextInt();
+    }
+
+    public int getMenuCollectionChoice() {
+        System.out.println(MAIN_MENU_COLLECTION);
         return scanner.nextInt();
     }
 
@@ -210,4 +225,7 @@ public class ListMenuIO implements AddressBookMenuIO {
         }
         return list;
     }
+
+
+
 }

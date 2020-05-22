@@ -17,5 +17,7 @@ public interface AddressBookMenuIO {
 
     int getSortChoice();
 
-    public int getOperatorChoice();
+    int getOperatorChoice();
+
+    int getMenuCollectionChoice();
 }
