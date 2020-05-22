@@ -5,7 +5,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import ua.khpi.oop.bezpalyi07.AddressBook;
 import ua.khpi.oop.bezpalyi16.controller.ControlInput;
 import ua.khpi.oop.bezpalyi16.view.ResultWindows;
 
@@ -21,8 +20,33 @@ public class ManipulatorModels {
         controlInput.loadData();
     }
 
-    public HBox addSearchLine(final Stage s) {
-        //Create nodes and adding correct spaceing
+    public HBox addUpdateButton(final Stage stage) {
+        HBox hbox = new HBox();
+        hbox.setSpacing(5);
+        Button button = new Button("Update...");
+        button.setPrefHeight(25);
+        button.setOnAction(e -> {
+            sizeLabel.setText(updateSizeLabel());
+        });
+        hbox.getChildren().add(button);
+        return hbox;
+    }
+
+    public HBox addNewAdressBookButton(final Stage stage) {
+        HBox hbox = new HBox();
+        hbox.setSpacing(5);
+        Button button = new Button("Add new address book");
+        button.setPrefHeight(25);
+        button.setOnAction(e -> {
+            new ResultWindows().newAddAddressBookForm(stage, controlInput);
+
+            sizeLabel.setText(updateSizeLabel());
+        });
+        hbox.getChildren().add(button);
+        return hbox;
+    }
+
+    public HBox addSearchButton(final Stage s) {
         HBox hbox = new HBox();
         hbox.setSpacing(5);
         TextField textField = new TextField();
@@ -34,8 +58,7 @@ public class ManipulatorModels {
         searchButton.setOnAction(e -> {
             int index = controlInput.getIndex(textField.getText());
             if (index != -1) {
-                AddressBook book = controlInput.getBooks().get(index - 1);
-                new ResultWindows().newModalWindow(s, Collections.singletonList(controlInput.getBooks().get(index)));
+                new ResultWindows().newModalWindow(s, Collections.singletonList(controlInput.getBooks().get(index - 1)));
             } else {
                 new ResultWindows().newModalInfoWindow("Wrong index!", s);
             }
@@ -44,8 +67,7 @@ public class ManipulatorModels {
         return hbox;
     }
 
-    public HBox addRemoveLine(final Stage s) {
-        //Create nodes and adding correct spaceing
+    public HBox addRemoveButton(final Stage s) {
         HBox hbox = new HBox();
         hbox.setSpacing(5);
         TextField textField = new TextField();
@@ -68,8 +90,7 @@ public class ManipulatorModels {
         return hbox;
     }
 
-    public HBox addRemoveAllLine(final Stage s) {
-        //Create nodes and adding correct spaceing
+    public HBox addRemoveAllButton(final Stage s) {
         HBox hbox = new HBox();
         hbox.setSpacing(5);
         Button button = new Button("Remove all address books");
@@ -83,15 +104,12 @@ public class ManipulatorModels {
         return hbox;
     }
 
-    public HBox addShowAllLine(final Stage s) {
-        //Create nodes and adding correct spaceing
+    public HBox addShowAllButton(final Stage s) {
         HBox hbox = new HBox();
         hbox.setSpacing(5);
         Button button = new Button("Show all address books");
         button.setPrefHeight(25);
-        button.setOnAction(e -> {
-            new ResultWindows().newModalWindow(s, controlInput.getBooks());
-        });
+        button.setOnAction(e -> new ResultWindows().newModalWindow(s, controlInput.getBooks()));
         hbox.getChildren().add(button);
         return hbox;
     }
